@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algorithm Lab — DAA Visualizer · SPPU MCA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/viz.css">
+</head>
+<body>
+
+<!-- ══════════ GRID BACKDROP (signature element) ══════════ -->
+<div class="blueprint-grid" aria-hidden="true"></div>
+
+<!-- ══════════ TOP NAV ══════════ -->
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">◈</span>
+    <span class="brand-text">ALGORITHM<b>LAB</b></span>
+  </div>
+  <div class="brand-sub">DAA Visualizer &middot; SPPU MCA 2024 Pattern &middot; 32 Algorithms</div>
+  <div class="topbar-right">
+    <button class="icon-btn" id="sound-btn" title="Toggle sound (Sa Re Ga Ma Pa, Fibonacci order)">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/></svg>
+      <span>Sound</span>
+    </button>
+    <div class="speed-control">
+      <label for="speed-sl">Speed</label>
+      <input type="range" min="1" max="6" value="3" id="speed-sl">
+      <span class="speed-val" id="speed-lbl">3&times;</span>
+    </div>
+    <button class="btn ghost" id="theme-info-btn" title="About">?</button>
+  </div>
+</header>
+
+<div class="app-shell">
+
+  <!-- ══════════ SIDEBAR ══════════ -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-search">
+      <input type="text" id="search-inp" placeholder="Search 32 algorithms&hellip;">
+    </div>
+    <div id="sidebar-list"></div>
+  </nav>
+
+  <!-- ══════════ MAIN ══════════ -->
+  <main class="main">
+    <div class="content-header">
+      <div class="title-block">
+        <div class="eyebrow" id="page-eyebrow">SORTING &middot; COMPARISON-BASED</div>
+        <h1 class="algo-title" id="page-title">Bubble Sort</h1>
+        <div class="badge-row" id="header-badges"></div>
+      </div>
+      <div class="ctrl-row">
+        <button class="btn primary" id="btn-play">▶&nbsp;Play</button>
+        <button class="btn" id="btn-step">Step →</button>
+        <button class="btn" id="btn-reset">↺ Reset</button>
+        <span class="step-counter" id="step-ctr">0 / 0</span>
+      </div>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-tab="viz">🎬 Visualizer</button>
+      <button class="tab" data-tab="input">🎛 Your Data</button>
+      <button class="tab" data-tab="concept">📖 Learn (Story)</button>
+      <button class="tab" data-tab="code">💻 Pseudocode</button>
+      <button class="tab" data-tab="cx">📊 Complexity</button>
+    </div>
+
+    <div class="scroll-body">
+      <section id="pane-viz" class="pane">
+        <div class="viz-canvas" id="viz-canvas">
+          <div class="viz-canvas-title">Live Visualization</div>
+          <div id="viz-content"></div>
+        </div>
+        <div class="step-log-wrap">
+          <div class="step-log-title">What's happening right now?</div>
+          <div class="step-log-msg" id="step-msg">Press ▶ Play or Step to start.</div>
+          <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
+        </div>
+        <div class="legend" id="viz-legend"></div>
+      </section>
+
+      <section id="pane-input" class="pane" style="display:none;">
+        <div id="input-content"></div>
+      </section>
+
+      <section id="pane-concept" class="pane" style="display:none;">
+        <div id="concept-content"></div>
+      </section>
+
+      <section id="pane-code" class="pane" style="display:none;">
+        <div id="code-content"></div>
+      </section>
+
+      <section id="pane-cx" class="pane" style="display:none;">
+        <div id="cx-content"></div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div class="mobile-sidebar-toggle" id="mobile-toggle">☰ Algorithms</div>
+
+<script src="js/core/sound.js"></script>
+<script src="js/core/state.js"></script>
+<script src="js/core/ui.js"></script>
+<script src="js/core/input.js"></script>
+<script src="js/algos/all.js"></script>
+<script src="js/content/concepts.js"></script>
+<script src="js/content/pseudocode.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

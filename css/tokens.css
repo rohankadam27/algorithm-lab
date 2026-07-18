@@ -1,0 +1,89 @@
+/* ═══════════════════════════════════════════════════════
+   ALGORITHM LAB v2 — "Neon Aurora" theme
+   A living, glowing lab: animated aurora mesh backdrop,
+   glass panels, neon-traced borders, pulsing signal colors.
+   ═══════════════════════════════════════════════════════ */
+:root{
+  --ink-950:#05070d;
+  --ink-900:#080b14;
+  --ink-850:#0b101c;
+  --ink-800:#0f1526;
+  --ink-750:#141b30;
+  --ink-700:#1a2340;
+  --line: rgba(120,160,255,.14);
+  --line-soft: rgba(120,160,255,.08);
+  --line-bright: rgba(120,160,255,.32);
+
+  --text-hi:#f4f8ff;
+  --text:#c9d6f2;
+  --text-dim:#8a9ac0;
+  --text-faint:#4d5c85;
+
+  --signal-cyan:#4fe0ff;
+  --signal-amber:#ffc35a;
+  --signal-teal:#3ef2b0;
+  --signal-coral:#ff5d7a;
+  --signal-violet:#c08cff;
+  --signal-gold:#ffe066;
+  --signal-pink:#ff7ee0;
+
+  --grad-brand: linear-gradient(120deg, var(--signal-cyan), var(--signal-violet) 55%, var(--signal-pink));
+  --grad-teal: linear-gradient(120deg, var(--signal-teal), var(--signal-cyan));
+
+  --font-display:'Space Grotesk', system-ui, sans-serif;
+  --font-body:'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono:'JetBrains Mono', 'Consolas', monospace;
+
+  --radius-sm:8px;
+  --radius:14px;
+  --radius-lg:20px;
+  --shadow-panel: 0 8px 40px rgba(0,0,0,.5), 0 0 0 1px rgba(120,160,255,.06) inset;
+  --glow-cyan: 0 0 24px rgba(79,224,255,.35);
+  --glow-violet: 0 0 24px rgba(192,140,255,.3);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{
+  background:var(--ink-950);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:14px;
+  overflow:hidden;
+  position:relative;
+}
+
+/* ═══ Living aurora backdrop — three slow-drifting glow blobs + fine grid ═══ */
+.blueprint-grid{
+  position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 8%, rgba(79,224,255,.16), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 85% 15%, rgba(192,140,255,.14), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(62,242,176,.10), transparent 65%),
+    var(--ink-950);
+  animation: aurora-drift 22s ease-in-out infinite alternate;
+}
+.blueprint-grid::after{
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  mask-image:radial-gradient(ellipse 100% 85% at 50% 10%, black 30%, transparent 100%);
+  opacity:.5;
+}
+@keyframes aurora-drift{
+  0%{ background-position: 0% 0%, 100% 0%, 50% 100%, 0 0; filter:hue-rotate(0deg); }
+  100%{ background-position: 6% 10%, 92% 8%, 46% 96%, 0 0; filter:hue-rotate(14deg); }
+}
+
+::-webkit-scrollbar{width:7px;height:7px;}
+::-webkit-scrollbar-thumb{background:var(--line-bright);border-radius:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+
+code, .mono{font-family:var(--font-mono);}
+
+@keyframes pulse-glow{ 0%,100%{opacity:1;} 50%{opacity:.55;} }
+@keyframes float-in{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+@keyframes ring-spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
