@@ -109,10 +109,12 @@ window.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>switchTab(t.dataset.tab)));
 
   document.getElementById('sound-btn').addEventListener('click',()=>{
+    Sound.unlock();
     const on=Sound.toggle();
     document.getElementById('sound-btn').classList.toggle('on',on);
   });
   document.getElementById('sound-btn').classList.add('on');
+  document.getElementById('btn-play').addEventListener('click',()=>Sound.unlock(),{once:false});
 
   document.getElementById('speed-sl').addEventListener('input',e=>{
     App.speedIdx=+e.target.value-1;
