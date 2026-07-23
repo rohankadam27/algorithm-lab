@@ -130,4 +130,5 @@ window.addEventListener('DOMContentLoaded',()=>{
   });
 
   selectAlgo('bubble');
+  Views.init('views-count');
 });
