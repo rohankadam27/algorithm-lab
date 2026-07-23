@@ -5,7 +5,7 @@ const Views = (()=>{
   // CHANGE THIS to something unique to your repo (e.g. include your GitHub
   // username) before deploying — namespaces on the free tier are public,
   // so a generic name could get bumped by someone else's test traffic.
-  const NAMESPACE = 'algolab-yourusername-daa-visualizer';
+  const NAMESPACE = 'algorithm-lab-rohankadam27-daa-visualizer';
   const COUNTER_NAME = 'pageviews';
   const API = `https://api.counterapi.dev/v1/${NAMESPACE}/${COUNTER_NAME}/up`;
 
