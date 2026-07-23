@@ -33,6 +33,17 @@
 .speed-control input[type=range]{width:70px;accent-color:var(--signal-cyan);}
 .speed-val{font-size:11px;color:var(--signal-cyan);font-family:var(--font-mono);min-width:20px;text-shadow:0 0 8px rgba(79,224,255,.6);}
 
+.views-badge{
+  display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.03);
+  border:1px solid var(--line);color:var(--text-dim);border-radius:20px;
+  padding:7px 13px;font-size:11px;font-family:var(--font-mono);
+  transition:box-shadow .3s, border-color .3s;
+}
+.views-badge #views-count{color:var(--signal-amber);font-weight:700;font-variant-numeric:tabular-nums;text-shadow:0 0 8px rgba(255,195,90,.5);min-width:1.4em;display:inline-block;text-align:right;}
+.views-badge .views-label{color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;font-size:9.5px;}
+.views-badge.views-pulse{border-color:rgba(255,195,90,.6);box-shadow:0 0 16px rgba(255,195,90,.3);animation:views-flash .6s ease;}
+@keyframes views-flash{ 0%{box-shadow:0 0 0 rgba(255,195,90,0);} 40%{box-shadow:0 0 20px rgba(255,195,90,.45);} 100%{box-shadow:0 0 16px rgba(255,195,90,.3);} }
+
 /* ═══════════ SHELL ═══════════ */
 .app-shell{position:relative;z-index:1;display:flex;height:calc(100vh - 60px);overflow:hidden;}
 
